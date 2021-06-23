@@ -13,7 +13,7 @@ import CalendarSvg from '../../assets/calendar.svg'
 export type GuildProps = {
   id: string,
   name: string,
-  icon: null,
+  icon: string | null,
   owner: boolean
 }
 
@@ -59,7 +59,7 @@ export function Appointment({data, ...rest}: Props) {
             </View>
          
             <View style={styles.playersInfo}>
-              <PlayerSvg fill={ !owner ? primary: on} />
+              <PlayerSvg fill={ owner ? primary: on} />
 
               <Text 
               style={ [ styles.player,

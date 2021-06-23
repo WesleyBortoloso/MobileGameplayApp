@@ -10,6 +10,7 @@ import { View, Text } from "react-native";
 type Props = RectButtonProps & {
   title: string
   icon: React.FC<SvgProps>
+  hasCheckBox?: boolean
   checked?: boolean
 }
 
@@ -17,6 +18,7 @@ export function Category({
   title,
   icon: Icon,
   checked = false,
+  hasCheckBox = false,
   ...rest
 }: Props) {
 
@@ -29,9 +31,12 @@ export function Category({
       colors={[secondary80, secondary100]}
       >
         <View style={[styles.content, { opacity: checked ? 1 : 0.4}]}>
-          <View style={
-            checked ? styles.checked : styles.check 
-          }/>
+          {
+            hasCheckBox &&
+            <View style={
+              checked ? styles.checked : styles.check 
+            }/>
+          }
           <Icon 
             width={48} 
             height={48} 
